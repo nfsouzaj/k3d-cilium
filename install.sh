@@ -7,6 +7,7 @@ set -uo pipefail
 
 export SERVERS=3
 export AGENTS=2
+export CILIUM_VERSION=1.14.0
 
 echo "#######################################################"
 echo "############### k3d with k3s and cilium ###############"
@@ -70,8 +71,8 @@ echo "#######################################################"
 sleep 5
 helm repo add cilium https://helm.cilium.io/
 
-helm install cilium cilium/cilium --version=1.14.0 \
-    --set global.tag="v1.14.0" \
+helm install cilium cilium/cilium --version=${CILIUM_VERSION} \
+    # --set global.tag="v1.14.0" \
     --set externalIPs.enabled=true \
     --set nodePort.enabled=true \
     --set hostPort.enabled=true \
