@@ -72,7 +72,7 @@ sleep 5
 helm repo add cilium https://helm.cilium.io/
 
 helm install cilium cilium/cilium --version=${CILIUM_VERSION} \
-    # --set global.tag="v1.14.0" \
+    --set global.tag="v${CILIUM_VERSION}" \
     --set externalIPs.enabled=true \
     --set nodePort.enabled=true \
     --set hostPort.enabled=true \
